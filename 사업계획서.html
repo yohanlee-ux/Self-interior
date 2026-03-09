@@ -207,10 +207,10 @@
       font-weight: 600;
       position: relative;
     }
-    .funnel-item:nth-child(1) { background: #1E3A8A; width: 90%; }
-    .funnel-item:nth-child(2) { background: #1E40AF; width: 72%; }
-    .funnel-item:nth-child(3) { background: #2563EB; width: 54%; }
-    .funnel-item:nth-child(4) { background: #3B82F6; width: 36%; }
+    .funnel-item:nth-of-type(1) { background: #1E3A8A; width: 90%; }
+    .funnel-item:nth-of-type(2) { background: #1E40AF; width: 72%; }
+    .funnel-item:nth-of-type(3) { background: #2563EB; width: 54%; }
+    .funnel-item:nth-of-type(4) { background: #3B82F6; width: 36%; }
     .funnel-item .funnel-label {
       font-size: 13px;
       opacity: 0.8;
@@ -585,6 +585,97 @@
     }
     .gtm-phase h4 { font-size: 17px; font-weight: 700; margin-bottom: 12px; }
     .gtm-phase p { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+    /* ── Growth Plan ── */
+    .growth-channels {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+      margin-top: 30px;
+    }
+    .growth-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      background: white;
+      position: relative;
+      overflow: hidden;
+    }
+    .growth-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+    }
+    .growth-card.organic::before { background: var(--success); }
+    .growth-card.community::before { background: var(--primary); }
+    .growth-card.paid::before { background: var(--accent); }
+    .growth-card.partnership::before { background: #8B5CF6; }
+    .growth-card .growth-badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .growth-card.organic .growth-badge { background: #D1FAE5; color: #065F46; }
+    .growth-card.community .growth-badge { background: var(--primary-light); color: var(--primary); }
+    .growth-card.paid .growth-badge { background: var(--accent-light); color: #92400E; }
+    .growth-card.partnership .growth-badge { background: #EDE9FE; color: #5B21B6; }
+    .growth-card h4 { font-size: 17px; font-weight: 700; margin-bottom: 10px; }
+    .growth-card p { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 14px; }
+    .growth-tactics { list-style: none; }
+    .growth-tactics li {
+      font-size: 13px;
+      padding: 6px 0;
+      color: var(--dark);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .growth-tactics li::before {
+      content: '▸';
+      color: var(--primary);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .funnel-visual {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      margin: 40px auto 0;
+      max-width: 600px;
+    }
+    .funnel-step {
+      text-align: center;
+      padding: 16px;
+      color: white;
+      font-weight: 600;
+      position: relative;
+      width: var(--w);
+    }
+    .funnel-step:nth-child(1) { background: #1E3A8A; border-radius: 12px 12px 0 0; --w: 100%; }
+    .funnel-step:nth-child(2) { background: #1E40AF; --w: 82%; }
+    .funnel-step:nth-child(3) { background: #2563EB; --w: 64%; }
+    .funnel-step:nth-child(4) { background: #3B82F6; --w: 46%; }
+    .funnel-step:nth-child(5) { background: var(--success); border-radius: 0 0 12px 12px; --w: 34%; }
+    .funnel-step .funnel-name { font-size: 14px; }
+    .funnel-step .funnel-metric { font-size: 12px; opacity: 0.8; font-weight: 400; margin-top: 2px; }
+    .north-star {
+      margin-top: 40px;
+      padding: 32px;
+      background: linear-gradient(135deg, #1E3A8A, #2563EB);
+      border-radius: 16px;
+      color: white;
+      text-align: center;
+    }
+    .north-star h4 { font-size: 14px; font-weight: 600; opacity: 0.8; margin-bottom: 8px; }
+    .north-star .ns-metric { font-size: 28px; font-weight: 800; margin-bottom: 4px; }
+    .north-star .ns-desc { font-size: 14px; opacity: 0.7; }
 
     /* ── Financial ── */
     .fin-table {
@@ -969,6 +1060,7 @@
     <a href="#market">Market</a>
     <a href="#solution">Solution</a>
     <a href="#bm">Business Model</a>
+    <a href="#growth">Growth</a>
     <a href="#finance">Finance</a>
     <a href="#team">Team</a>
     <a href="#vision">Vision</a>
@@ -1354,6 +1446,76 @@
         <h4>양면 네트워크 효과</h4>
         <p>전문가가 많을수록 유저 유입 &uarr; &rarr; 유저가 많을수록 전문가 유입 &uarr;. 양면 네트워크 효과로 경쟁자 진입 장벽 구축.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Growth Plan -->
+<section class="section" id="growth">
+  <div class="container">
+    <div class="section-label">Growth Plan</div>
+    <h2 class="section-title">채널별 유저 확보 전략</h2>
+    <p class="section-desc">서비스만으로는 유저가 오지 않는다. 인테리어를 준비하는 사람이 이미 모여 있는 곳에서 시작한다.</p>
+
+    <div class="growth-channels">
+      <div class="growth-card organic">
+        <span class="growth-badge">ORGANIC</span>
+        <h4>검색 SEO + 블로그 콘텐츠</h4>
+        <p>인테리어 준비자는 반드시 검색한다. "셀프 인테리어 비용", "인테리어 공정 순서", "타일 시공 단가" 등 롱테일 키워드를 선점한다.</p>
+        <ul class="growth-tactics">
+          <li>공정별 비용 가이드 시리즈 (30편+) &rarr; 네이버/구글 상위 노출</li>
+          <li>비용 계산기를 웹 버전으로 공개 &rarr; 결과 페이지에서 앱 전환 유도</li>
+          <li>유저가 생성한 블로그 글 &rarr; 자연 검색 유입의 선순환</li>
+          <li>월 목표: 검색 유입 5,000+ &rarr; 앱 전환 15%</li>
+        </ul>
+      </div>
+      <div class="growth-card community">
+        <span class="growth-badge">COMMUNITY</span>
+        <h4>인테리어 커뮤니티 침투</h4>
+        <p>네이버 카페 "셀프 인테리어"(40만+), "인테리어 정보"(25만+) 등 이미 타겟 유저가 모여 있는 커뮤니티에서 실질적 가치를 제공한다.</p>
+        <ul class="growth-tactics">
+          <li>비용 계산 결과 공유 &rarr; "이 앱 뭐예요?" 자연 바이럴</li>
+          <li>공정 체크리스트 PDF 무료 배포 &rarr; 앱 다운로드 CTA</li>
+          <li>인테리어 후기 작성 이벤트 (앱 내 블로그 생성 기능 체험)</li>
+          <li>월 목표: 카페/커뮤니티 유입 3,000+</li>
+        </ul>
+      </div>
+      <div class="growth-card paid">
+        <span class="growth-badge">PAID</span>
+        <h4>퍼포먼스 마케팅 (Phase 2~)</h4>
+        <p>PMF 확인 후 유닛 이코노믹스가 맞는 채널에만 집행. CAC &lt; LTV의 3분의 1 기준.</p>
+        <ul class="growth-tactics">
+          <li>네이버 검색 광고: "인테리어 견적", "셀프 인테리어" 키워드</li>
+          <li>인스타그램/유튜브: 전후 비교 사진/영상 소재 (CTR 높음)</li>
+          <li>리타겟팅: 웹 비용 계산기 사용 후 이탈한 유저</li>
+          <li>CAC 목표: 5,000원 이하 (구독 전환 기준 15,000원 이하)</li>
+        </ul>
+      </div>
+      <div class="growth-card partnership">
+        <span class="growth-badge">PARTNERSHIP</span>
+        <h4>전략적 제휴</h4>
+        <p>인테리어를 시작하는 순간에 자연스럽게 노출되는 접점을 확보한다.</p>
+        <ul class="growth-tactics">
+          <li>부동산 앱 제휴: 입주 예정자에게 인테리어 계획 도구 추천</li>
+          <li>자재 브랜드 협업: LX하우시스, 한샘 등 자재 카탈로그 연동</li>
+          <li>인테리어 업체 B2B: 고객 관리 도구로 제공 &rarr; 역방향 유저 유입</li>
+          <li>아파트 입주 커뮤니티 제휴 (입주 단톡방 등)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="funnel-visual">
+      <div class="funnel-step"><div class="funnel-name">인지 (Awareness)</div><div class="funnel-metric">검색 / 커뮤니티 / 광고 노출</div></div>
+      <div class="funnel-step"><div class="funnel-name">유입 (Acquisition)</div><div class="funnel-metric">웹 비용 계산기 사용 &rarr; 앱 설치</div></div>
+      <div class="funnel-step"><div class="funnel-name">활성화 (Activation)</div><div class="funnel-metric">첫 프로젝트 생성 + 공정 3개 이상 설정</div></div>
+      <div class="funnel-step"><div class="funnel-name">리텐션 (Retention)</div><div class="funnel-metric">주 2회+ 체크리스트 사용 / AI 질문</div></div>
+      <div class="funnel-step"><div class="funnel-name">수익화 (Revenue)</div><div class="funnel-metric">전문가 매칭 or 프리미엄 구독 전환</div></div>
+    </div>
+
+    <div class="north-star">
+      <h4>North Star Metric</h4>
+      <div class="ns-metric">주간 활성 프로젝트 수</div>
+      <div class="ns-desc">프로젝트를 만들고 실제로 공정을 진행하는 유저 수가 모든 성장의 선행 지표</div>
     </div>
   </div>
 </section>
